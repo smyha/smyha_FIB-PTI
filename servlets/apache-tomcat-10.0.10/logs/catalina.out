@@ -1,0 +1,46 @@
+NOTE: Picked up JDK_JAVA_OPTIONS:  --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.io=ALL-UNNAMED --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.util.concurrent=ALL-UNNAMED --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+16-Sep-2025 17:48:21.776 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/10.0.10
+16-Sep-2025 17:48:21.781 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Jul 30 2021 09:51:27 UTC
+16-Sep-2025 17:48:21.781 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 10.0.10.0
+16-Sep-2025 17:48:21.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Linux
+16-Sep-2025 17:48:21.782 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            5.15.167.4-microsoft-standard-WSL2
+16-Sep-2025 17:48:21.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+16-Sep-2025 17:48:21.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             /usr/lib/jvm/java-21-openjdk-amd64
+16-Sep-2025 17:48:21.783 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.8+9-Ubuntu-0ubuntu124.04.1
+16-Sep-2025 17:48:21.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Ubuntu
+16-Sep-2025 17:48:21.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         /mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10
+16-Sep-2025 17:48:21.784 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         /mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10
+16-Sep-2025 17:48:21.796 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+16-Sep-2025 17:48:21.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+16-Sep-2025 17:48:21.797 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+16-Sep-2025 17:48:21.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+16-Sep-2025 17:48:21.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+16-Sep-2025 17:48:21.798 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/conf/logging.properties
+16-Sep-2025 17:48:21.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+16-Sep-2025 17:48:21.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+16-Sep-2025 17:48:21.799 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.protocol.handler.pkgs=org.apache.catalina.webresources
+16-Sep-2025 17:48:21.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dorg.apache.catalina.security.SecurityListener.UMASK=0027
+16-Sep-2025 17:48:21.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dignore.endorsed.dirs=
+16-Sep-2025 17:48:21.800 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10
+16-Sep-2025 17:48:21.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10
+16-Sep-2025 17:48:21.801 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/temp
+16-Sep-2025 17:48:21.806 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib]
+16-Sep-2025 17:48:22.157 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["http-nio-8080"]
+16-Sep-2025 17:48:22.179 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [669] milliseconds
+16-Sep-2025 17:48:22.234 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+16-Sep-2025 17:48:22.235 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/10.0.10]
+16-Sep-2025 17:48:22.264 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/docs]
+16-Sep-2025 17:48:22.868 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/docs] has finished in [603] ms
+16-Sep-2025 17:48:22.869 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/examples]
+16-Sep-2025 17:48:26.054 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/examples] has finished in [3,185] ms
+16-Sep-2025 17:48:26.055 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/host-manager]
+16-Sep-2025 17:48:26.462 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/host-manager] has finished in [407] ms
+16-Sep-2025 17:48:26.463 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/manager]
+16-Sep-2025 17:48:26.957 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/manager] has finished in [494] ms
+16-Sep-2025 17:48:26.959 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/my_webapp]
+16-Sep-2025 17:48:30.279 INFO [main] org.apache.jasper.servlet.TldScanner.scanJars At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+16-Sep-2025 17:48:30.305 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/my_webapp] has finished in [3,346] ms
+16-Sep-2025 17:48:30.307 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/ROOT]
+16-Sep-2025 17:48:30.549 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [/mnt/c/Users/sergi/Desktop/UPC FIB/PTI-FIB/FIB-PTI/servlets/apache-tomcat-10.0.10/webapps/ROOT] has finished in [242] ms
+16-Sep-2025 17:48:30.573 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["http-nio-8080"]
+16-Sep-2025 17:48:30.588 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [8912] milliseconds
