@@ -34,7 +34,7 @@ public class CarRentalList extends HttpServlet {
     if (passw != null) passw = passw.trim();
 
     String user= "admin";
-    String pass= "admin123";
+    String pass= "1234";
     
     if(username != null && passw != null && username.equalsIgnoreCase(user) && pass.equals(passw)){
   		handleReadRental(res);

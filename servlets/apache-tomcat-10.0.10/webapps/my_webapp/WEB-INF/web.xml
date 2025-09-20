@@ -20,14 +20,6 @@
       <servlet-name>list</servlet-name>
       <url-pattern>/list</url-pattern>
     </servlet-mapping>
-    <servlet>
-      <servlet-name>listdb</servlet-name>
-      <servlet-class>mypackage.CarRentalListDB</servlet-class>
-    </servlet>
-    <servlet-mapping>
-      <servlet-name>listdb</servlet-name>
-      <url-pattern>/listdb</url-pattern>
-    </servlet-mapping>
     <resource-ref>
         <description>DB Connection</description>
         <res-ref-name>jdbc/TestDB</res-ref-name>
