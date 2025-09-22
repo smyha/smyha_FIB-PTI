@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Informe_Practica_Servlets.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="informe-de-la-pr%C3%A0ctica-java-servlets-i-chatbot-rag">Informe de la Pràctica: Java Servlets i Chatbot RAG</h1>
+<h2 id="1-introducci%C3%B3-i-entorn-de-la-pr%C3%A0ctica">1. Introducció i Entorn de la Pràctica</h2>
+<h3 id="11-objectius-de-la-pr%C3%A0ctica">1.1 Objectius de la Pràctica</h3>
+<p>Aquesta pràctica té com a objectiu desenvolupar una aplicació web completa utilitzant Java Servlets amb Apache Tomcat 10, implementant un sistema de lloguer de vehicles amb dues funcionalitats principals:</p>
+<ul>
+<li>Gestió de nous lloguers de vehicles</li>
+<li>Visualització de la llista de lloguers (amb autenticació d'administrador)</li>
+</ul>
+<p>A més, s'ha implementat una extensió que consisteix en un chatbot intel·ligent utilitzant tècniques de Retrieval-Augmented Generation (RAG) per millorar l'experiència de l'usuari.</p>
+<h3 id="12-entorn-tecnol%C3%B2gic">1.2 Entorn Tecnològic</h3>
+<ul>
+<li><strong>Servidor web</strong>: Apache Tomcat 10.0.10</li>
+<li><strong>Llenguatge de programació</strong>: Java (servlets)</li>
+<li><strong>Format de dades</strong>: JSON per a la persistència</li>
+<li><strong>Containerització</strong>: Docker</li>
+<li><strong>IA</strong>: Ollama amb models Llama3.2 i Llama3.1</li>
+<li><strong>Framework RAG</strong>: LangChain amb embeddings locals</li>
+</ul>
+<h2 id="2-alternatives-per-resoldre-la-pr%C3%A0ctica">2. Alternatives per Resoldre la Pràctica</h2>
+<h3 id="21-alternatives-per-al-backend-web">2.1 Alternatives per al Backend Web</h3>
+<p><strong>Opció 1: Java Servlets (Solució triada)</strong></p>
+<ul>
+<li>Avantatges: Integració nativa amb Java, robustesa, escalabilitat</li>
+<li>Desavantatges: Codi més verbós, configuració complexa</li>
+</ul>
+<h3 id="22-alternatives-per-a-la-persist%C3%A8ncia-de-dades">2.2 Alternatives per a la Persistència de Dades</h3>
+<p><strong>Opció 1: Fitxer JSON (Solució triada)</strong></p>
+<ul>
+<li>Avantatges: Simplicitat, fàcil de debugar</li>
+<li>Desavantatges: No escalable, problemes de concorrència</li>
+</ul>
+<p><strong>Opció 2: Base de dades MySQL</strong></p>
+<ul>
+<li>Avantatges: Escalabilitat, transaccions ACID</li>
+<li>Desavantatges: Més complexitat de configuració</li>
+</ul>
+<p><strong>Opció 3: Base de dades en memòria</strong></p>
+<ul>
+<li>Avantatges: Ràpida</li>
+<li>Desavantatges: Pèrdua de dades al reiniciar</li>
+</ul>
+<h3 id="23-alternatives-per-al-chatbot">2.3 Alternatives per al Chatbot</h3>
+<p><strong>Opció 1: RAG amb Ollama (Solució triada)</strong></p>
+<ul>
+<li>Avantatges: Privacitat, control total, cost zero</li>
+<li>Desavantatges: Requereix recursos locals</li>
+</ul>
+<p><strong>Opció 2: API externa (OpenAI, Anthropic)</strong></p>
+<ul>
+<li>Avantatges: Millor qualitat, menys configuració</li>
+<li>Desavantatges: Cost, dependència externa, privacitat</li>
+</ul>
+<p><strong>Opció 3: Chatbot basat en regles</strong></p>
+<ul>
+<li>Avantatges: Predictible, ràpid</li>
+<li>Desavantatges: Limitada flexibilitat</li>
+</ul>
+<h2 id="3-soluci%C3%B3-triada-i-implementaci%C3%B3">3. Solució Triada i Implementació</h2>
+<h3 id="31-arquitectura-de-la-soluci%C3%B3">3.1 Arquitectura de la Solució</h3>
+<p>La solució implementada segueix la següent arquitectura:</p>
+<pre class="hljs"><code><div>┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Frontend      │    │   Backend       │    │   Persistència  │
+│   (HTML Forms)  │◄──►│   (Servlets)    │◄──►│   (JSON File)   │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+                              │
+                              ▼
+                       ┌─────────────────┐
+                       │   Chatbot RAG   │
+                       │   (Ollama +     │
+                       │    LangChain)   │
+                       └─────────────────┘
+</div></code></pre>
+<h3 id="32-implementaci%C3%B3-dels-servlets">3.2 Implementació dels Servlets</h3>
+<h4 id="321-servlet-carrentalnewjava">3.2.1 Servlet CarRentalNew.java</h4>
+<p>El servlet <code>CarRentalNew</code> gestiona la creació de nous lloguers. Les característiques clau inclouen:</p>
+<ul>
+<li>Gestió robusta d'errors amb try-catch</li>
+<li>Creació automàtica del fitxer JSON si no existeix</li>
+<li>Reutilització de dades existents</li>
+<li>Interfície HTML dinàmica</li>
+</ul>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleCreateRental</span><span class="hljs-params">(String co2Rating, String engine, String dias_alquiler, 
+                              String num_vehi, Double descuento, PrintWriter out)</span> </span>{
+    <span class="hljs-comment">// Gestió del fitxer JSON</span>
+    <span class="hljs-comment">// Creació/actualització de lloguers</span>
+    <span class="hljs-comment">// Persistència a disc</span>
+}
+</div></code></pre>
+<h4 id="322-servlet-carrentallistjava">3.2.2 Servlet CarRentalList.java</h4>
+<p>El servlet <code>CarRentalList</code> gestiona la visualització de lloguers amb:</p>
+<ul>
+<li>Autenticació d'administrador (admin/1234)</li>
+<li>Compatibilitat amb diferents formats de dades</li>
+</ul>
+<pre class="hljs"><code><div>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">handleReadRental</span><span class="hljs-params">(HttpServletResponse res)</span> </span>{
+    <span class="hljs-comment">// Gestió fitxer JSON (parse)</span>
+    <span class="hljs-comment">// Itera per rental array i imprimeix cada rental detail</span>
+    <span class="hljs-comment">// Controla els errors en llegir el JSON</span>
+  }
+</div></code></pre>
+<h3 id="33-implementaci%C3%B3-del-chatbot-rag">3.3 Implementació del Chatbot RAG</h3>
+<h4 id="331-arquitectura-rag">3.3.1 Arquitectura RAG</h4>
+<p>El sistema RAG implementat segueix el següent flux de treball:</p>
+<p><img src="chatbot-car_rental/images/RAG_pipeline.png" alt="RAG Pipeline"></p>
+<p><em>Figura 1: Pipeline RAG per al sistema de chatbot</em></p>
+<h4 id="332-creaci%C3%B3-de-l%C3%ADndex-vectorial">3.3.2 Creació de l'Índex Vectorial</h4>
+<p>El sistema utilitza LangChain per crear un índex vectorial del dataset de lloguers:</p>
+<pre class="hljs"><code><div><span class="hljs-function"><span class="hljs-keyword">def</span> <span class="hljs-title">create_vector_index</span><span class="hljs-params">(model_name=<span class="hljs-string">"llama3.2"</span>)</span>:</span>
+    <span class="hljs-comment"># Carregar dataset CSV</span>
+    loader = TextLoader(<span class="hljs-string">"dataset/rentals.csv"</span>)
+    
+    <span class="hljs-comment"># Configurar embeddings</span>
+    embeddings = OllamaEmbeddings(model=model_name)
+    
+    <span class="hljs-comment"># Crear índex vectorial</span>
+    index_creator = VectorstoreIndexCreator(embedding=embeddings)
+    index = index_creator.from_loaders([loader])
+</div></code></pre>
+<h4 id="333-model-dembeddings">3.3.3 Model d'Embeddings</h4>
+<p>El sistema utilitza embeddings per representar el coneixement de manera vectorial:</p>
+<p><img src="chatbot-car_rental/images/Embeddings_model.png" alt="Embeddings Model"></p>
+<p><em>Figura 2: Model d'embeddings per a la representació vectorial</em></p>
+<h4 id="334-sistema-de-consultes-rag">3.3.4 Sistema de Consultes RAG</h4>
+<p>El chatbot processa consultes utilitzant l'índex vectorial per trobar informació rellevant i generar respostes contextualitzades.</p>
+<h3 id="34-containeritzaci%C3%B3-amb-docker">3.4 Containerització amb Docker</h3>
+<h4 id="341-dockerfile">3.4.1 Dockerfile</h4>
+<p>S'ha implementat una solució de containerització utilitzant Docker per facilitar el desplegament i la gestió de l'aplicació:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">FROM</span> tomcat:<span class="hljs-number">10</span>
+<span class="hljs-keyword">COPY</span><span class="bash"> my_webapp /my_webapp</span>
+<span class="hljs-keyword">WORKDIR</span><span class="bash"> /</span>
+<span class="hljs-keyword">RUN</span><span class="bash"> cp -r my_webapp /usr/<span class="hljs-built_in">local</span>/tomcat/webapps</span>
+</div></code></pre>
+<p><strong>Anàlisi detallada del Dockerfile:</strong></p>
+<ol>
+<li>
+<p><strong><code>FROM tomcat:10</code></strong>: Utilitza la imatge oficial d'Apache Tomcat versió 10 com a base</p>
+</li>
+<li>
+<p><strong><code>COPY my_webapp /my_webapp</code></strong>: Copia l'aplicació web al contenidor</p>
+<ul>
+<li>Inclou tots els servlets compilats (.class)</li>
+<li>Inclou fitxers de configuració (web.xml)</li>
+<li>Inclou biblioteques externes (json-simple-1.1.1.jar)</li>
+</ul>
+</li>
+<li>
+<p><strong><code>WORKDIR /</code></strong>: Estableix el directori de treball a l'arrel</p>
+<ul>
+<li>Simplifica les rutes relatives</li>
+<li>Facilita la gestió de fitxers</li>
+</ul>
+</li>
+<li>
+<p><strong><code>RUN cp -r my_webapp /usr/local/tomcat/webapps</code></strong>: Desplega l'aplicació a Tomcat</p>
+<ul>
+<li>Copia l'aplicació al directori webapps de Tomcat</li>
+<li>Tomcat detecta automàticament l'aplicació i la desplega</li>
+<li>L'aplicació queda disponible a <code>/my_webapp</code></li>
+</ul>
+</li>
+</ol>
+<p><strong>Característiques de la solució Docker:</strong></p>
+<ul>
+<li><strong>Imatge base</strong>: Apache Tomcat 10 oficial amb Java preinstal·lat</li>
+<li><strong>Estructura simple</strong>: Còpia directa de l'aplicació web compilada</li>
+<li><strong>Configuració mínima</strong>: No requereix configuració addicional</li>
+<li><strong>Ports exposats</strong>: 8080 (HTTP) i 8443 (HTTPS) per defecte</li>
+<li><strong>Desplegament automàtic</strong>: Tomcat desplega l'aplicació automàticament</li>
+</ul>
+<h4 id="342-docker-compose">3.4.2 Docker Compose</h4>
+<p>Per a la gestió d'orquestració de contenidors, s'ha implementat un fitxer <code>docker-compose.yaml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-attr">version:</span> <span class="hljs-string">'3.8'</span>
+<span class="hljs-attr">services:</span>
+  <span class="hljs-attr">web:</span>
+    <span class="hljs-attr">build:</span> <span class="hljs-string">.</span>
+    <span class="hljs-attr">ports:</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"8080:8080"</span>
+      <span class="hljs-bullet">-</span> <span class="hljs-string">"8443:8443"</span>
+</div></code></pre>
+<p><img src="img/docker_compose.png" alt="Docker Compose"></p>
+<p><em>Figura 8: Execució de Docker Compose mostrant la construcció i inici del contenidor</em></p>
+<p><strong>Anàlisi detallada del Docker Compose:</strong></p>
+<ol>
+<li>
+<p><strong><code>version: '3.8'</code></strong>: Especifica la versió del format de Docker Compose</p>
+<ul>
+<li>Versió estable i àmpliament suportada</li>
+<li>Compatible amb la majoria d'entorns</li>
+</ul>
+</li>
+<li>
+<p><strong><code>services:</code></strong>: Defineix els serveis que formen l'aplicació</p>
+<ul>
+<li>Cada servei correspon a un contenidor</li>
+<li>Permet definir múltiples serveis relacionats</li>
+</ul>
+</li>
+<li>
+<p><strong><code>web:</code></strong>: Nom del servei (contenidor)</p>
+<ul>
+<li>Identificador únic per al servei</li>
+<li>Es pot referenciar des d'altres serveis</li>
+</ul>
+</li>
+<li>
+<p><strong><code>build: .</code></strong>: Especifica com construir la imatge</p>
+<ul>
+<li>Utilitza el Dockerfile del directori actual</li>
+<li>Construcció automàtica abans de l'execució</li>
+</ul>
+</li>
+<li>
+<p><strong><code>ports:</code></strong>: Mapeja ports entre el contenidor i l'host</p>
+<ul>
+<li><code>&quot;8080:8080&quot;</code>: HTTP - port 8080 del contenidor al 8080 de l'host</li>
+<li><code>&quot;8443:8443&quot;</code>: HTTPS - port 8443 del contenidor al 8443 de l'host</li>
+<li>Permet accés directe des del navegador</li>
+</ul>
+</li>
+</ol>
+<p><strong>Avantatges de la solució Docker Compose:</strong></p>
+<ul>
+<li><strong>Gestió simplificada</strong>: Un sol comandament (<code>docker-compose up</code>) per iniciar l'aplicació</li>
+<li><strong>Ports mapejats</strong>: Accés directe des del host sense configuració addicional</li>
+<li><strong>Escalabilitat</strong>: Fàcil d'afegir més serveis (base de dades, cache, etc.)</li>
+<li><strong>Desplegament consistent</strong>: Funciona igual en qualsevol entorn (desenvolupament, test, producció)</li>
+<li><strong>Gestió de dependències</strong>: Pot gestionar múltiples contenidors relacionats</li>
+<li><strong>Configuració centralitzada</strong>: Tota la configuració en un sol fitxer</li>
+</ul>
+<h4 id="343-comandaments-d%C3%BAs">3.4.3 Comandaments d'Ús</h4>
+<p><strong>Comandaments Docker Compose (Recomanat):</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Construir i executar en segon pla</span>
+docker-compose up -d
+
+<span class="hljs-comment"># Veure logs del servei</span>
+docker-compose logs -f web
+
+<span class="hljs-comment"># Aturar els serveis</span>
+docker-compose down
+
+<span class="hljs-comment"># Reconstruir i executar</span>
+docker-compose up --build -d
+</div></code></pre>
+<p><strong>Comandaments Docker individuals:</strong></p>
+<pre class="hljs"><code><div><span class="hljs-comment"># Construir imatge manualment</span>
+docker build -f Dockerfile -t carrenting .
+
+<span class="hljs-comment"># Executar contenidor manualment</span>
+docker run --name carrenting -d -p 8080:8080 -p 8443:8443 carrenting
+
+<span class="hljs-comment"># Veure contenidors actius</span>
+docker ps
+
+<span class="hljs-comment"># Aturar contenidor</span>
+docker stop carrenting
+</div></code></pre>
+<p><strong>Verificació del funcionament:</strong></p>
+<ul>
+<li>Accés HTTP: <code>http://localhost:8080/my_webapp/</code></li>
+<li>Accés HTTPS: <code>https://localhost:8443/my_webapp/</code></li>
+<li>Llista de lloguers: <code>http://localhost:8080/my_webapp/carrental_home.html</code></li>
+</ul>
+<h2 id="4-avaluaci%C3%B3-de-la-soluci%C3%B3">4. Avaluació de la Solució</h2>
+<h3 id="41-proves-realitzades">4.1 Proves Realitzades</h3>
+<h4 id="411-suite-de-proves-comprensives">4.1.1 Suite de Proves Comprensives</h4>
+<p>S'ha desenvolupat una suite de proves comprensives que avalua el sistema RAG en múltiples dimensions:</p>
+<p><strong>Estructura de Proves:</strong></p>
+<ol>
+<li><strong>Proves de Rendiment</strong> - Mesura de temps d'indexació i consultes</li>
+<li><strong>Avaluació de Qualitat</strong> - Precisió i rellevància de les respostes</li>
+<li><strong>Proves de Casos Límit</strong> - Robustesa amb consultes inusuals</li>
+<li><strong>Anàlisi Comparativa</strong> - Comparació entre diferents configuracions</li>
+<li><strong>Avaluació d'Experiència d'Usuari</strong> - Utilitat i claredat de les respostes</li>
+</ol>
+<h4 id="412-proves-funcionals-dels-servlets">4.1.2 Proves Funcionals dels Servlets</h4>
+<p><strong>Prova 1: Creació de Lloguers</strong></p>
+<ul>
+<li>Input: CO2 Rating: A, Engine: Electric, Dies: 5, Unitats: 2, Descompte: 15%</li>
+<li>Resultat: ✅ Lloguer creat correctament</li>
+<li>Temps de resposta: &lt; 200ms</li>
+</ul>
+<p><strong>Prova 2: Llista de Lloguers</strong></p>
+<ul>
+<li>Input: Usuari: admin, Contrasenya: 1234</li>
+<li>Resultat: ✅ Llista mostrada correctament</li>
+<li>Temps de resposta: &lt; 150ms</li>
+</ul>
+<p><img src="img/rental_list.png" alt="Llista de Lloguers"></p>
+<p><em>Figura 3: Interfície de la llista de lloguers amb autenticació d'administrador</em></p>
+<h4 id="413-proves-del-sistema-rag">4.1.3 Proves del Sistema RAG</h4>
+<p><strong>Prova 1: Consultes Bàsiques</strong></p>
+<pre class="hljs"><code><div>Query: &quot;What types of engines are available?&quot;
+Answer: &quot;The types of engines available are: 1. Hybrid 2. Electric 3. Gasoline 4. Diesel&quot;
+Temps: 2.68 segons
+</div></code></pre>
+<p><img src="img/query_index.png" alt="Consulta RAG"></p>
+<p><em>Figura 4: Interfície del chatbot RAG processant consultes bàsiques</em></p>
+<p><strong>Prova 2: Proves de Rendiment per Complexitat</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tipus de Consulta</th>
+<th>Temps Mitjà</th>
+<th>Consultes Exitoses</th>
+<th>Temps Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Consultes Simples</td>
+<td>3.85s</td>
+<td>3/3</td>
+<td>12.83s</td>
+</tr>
+<tr>
+<td>Consultes Complexes</td>
+<td>4.36s</td>
+<td>3/3</td>
+<td>14.19s</td>
+</tr>
+<tr>
+<td>Consultes Analítiques</td>
+<td>6.53s</td>
+<td>3/3</td>
+<td>20.69s</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prova 3: Comparació RAG vs Non-RAG</strong></p>
+<table>
+<thead>
+<tr>
+<th>Mètrica</th>
+<th>RAG (CSV)</th>
+<th>RAG (PDF)</th>
+<th>Non-RAG</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Temps mitjà</td>
+<td>2.94s</td>
+<td>2.96s</td>
+<td>4.29s</td>
+</tr>
+<tr>
+<td>Longitud resposta</td>
+<td>192 chars</td>
+<td>146 chars</td>
+<td>1880 chars</td>
+</tr>
+<tr>
+<td>Precisió</td>
+<td>85%</td>
+<td>90%</td>
+<td>60%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prova 4: Comparació entre Diferents Configuracions</strong></p>
+<p><img src="img/query_index_pdf.png" alt="Consulta RAG PDF"></p>
+<p><em>Figura 5: Sistema RAG processant consultes amb dataset PDF enriquit</em></p>
+<p><img src="img/query_non_rag.png" alt="Consulta Non-RAG"></p>
+<p><em>Figura 6: Sistema Non-RAG per comparació de rendiment</em></p>
+<p><img src="img/comprehensive_test.png" alt="Proves Comprensives"></p>
+<p><em>Figura 7: Suite de proves comprensives executant-se</em></p>
+<h3 id="42-resultats-de-lavaluaci%C3%B3-comprensiva">4.2 Resultats de l'Avaluació Comprensiva</h3>
+<p>Segons l'arxiu <code>comprehensive_evaluation_20250921_204521.json</code>:</p>
+<ul>
+<li><strong>Rendiment</strong>: Excel·lent (100%) - Sistema ràpid i eficient</li>
+<li><strong>Qualitat</strong>: Acceptable (62.5%) - Respostes generalment correctes</li>
+<li><strong>Robustesa</strong>: Baixa (20%) - Necessita millores en gestió d'errors</li>
+<li><strong>UX</strong>: Molt bona (86.67%) - Interfície intuïtiva i útil</li>
+</ul>
+<h2 id="5-aspectes-positius-i-negatius-de-la-soluci%C3%B3">5. Aspectes Positius i Negatius de la Solució</h2>
+<h3 id="51-aspectes-positius">5.1 Aspectes Positius</h3>
+<h4 id="511-java-servlets">5.1.1 Java Servlets</h4>
+<p><strong>Positius:</strong></p>
+<ul>
+<li><strong>Robustesa</strong>: Gestió robusta d'errors i excepcions</li>
+<li><strong>Escalabilitat</strong>: Suport per a múltiples usuaris concurrents</li>
+<li><strong>Integració</strong>: Perfecta integració amb Apache Tomcat</li>
+</ul>
+<p><strong>Negatius:</strong></p>
+<ul>
+<li><strong>Verbositat</strong>: Codi més llarg comparat amb frameworks moderns</li>
+<li><strong>Configuració</strong>: Necessita configuració manual extensa</li>
+<li><strong>Rendiment</strong>: Menys ràpid que solucions basades en Node.js</li>
+<li><strong>Curva d'aprenentatge</strong>: Requereix coneixements profunds de Java</li>
+</ul>
+<h4 id="512-sistema-rag">5.1.2 Sistema RAG</h4>
+<p><strong>Positius:</strong></p>
+<ul>
+<li><strong>Precisió</strong>: Respostes més precises que models sense context</li>
+<li><strong>Privacitat</strong>: Processament local, sense enviar dades externes</li>
+<li><strong>Flexibilitat</strong>: Fàcil d'adaptar a nous datasets</li>
+<li><strong>Cost</strong>: Zero cost operatiu</li>
+<li><strong>Contextualització</strong>: Respostes basades en dades específiques</li>
+</ul>
+<p><strong>Negatius:</strong></p>
+<ul>
+<li><strong>Recursos</strong>: Requereix recursos computacionals significatius</li>
+<li><strong>Qualitat</strong>: Depèn de la qualitat del dataset d'entrada</li>
+<li><strong>Temps</strong>: Respostes més lentes que APIs externes</li>
+<li><strong>Complexitat</strong>: Configuració inicial complexa</li>
+</ul>
+<h4 id="513-soluci%C3%B3-docker">5.1.3 Solució Docker</h4>
+<p><strong>Positius:</strong></p>
+<ul>
+<li><strong>Portabilitat</strong>: Funciona igual en qualsevol entorn</li>
+<li><strong>Aïllament</strong>: Aplicació aïllada del sistema host</li>
+<li><strong>Desplegament</strong>: Desplegament consistent i repetible</li>
+<li><strong>Escalabilitat</strong>: Fàcil d'afegir més serveis</li>
+<li><strong>Gestió</strong>: Simplificada amb Docker Compose</li>
+</ul>
+<p><strong>Negatius:</strong></p>
+<ul>
+<li><strong>Overhead</strong>: Consum addicional de recursos</li>
+<li><strong>Complexitat</strong>: Requereix coneixements de Docker</li>
+<li><strong>Debugging</strong>: Més complex de debuggar problemes</li>
+</ul>
+<h2 id="6-%C3%BAs-dintellig%C3%A8ncia-artificial-en-la-resoluci%C3%B3">6. Ús d'Intel·ligència Artificial en la Resolució</h2>
+<h3 id="61-implementaci%C3%B3-del-chatbot-rag">6.1 Implementació del Chatbot RAG</h3>
+<p>L'ús d'IA ha estat central en aquesta pràctica, implementant un sistema de chatbot que utilitza:</p>
+<ul>
+<li><strong>Models Llama3.2 i Llama3.1</strong>: Per a generació de text natural</li>
+<li><strong>Ollama</strong>: Per a execució local dels models</li>
+<li><strong>LangChain</strong>: Per a la integració RAG</li>
+<li><strong>Embeddings</strong>: Per a la representació vectorial del coneixement</li>
+</ul>
+<h3 id="62-efecte-en-laprenentatge">6.2 Efecte en l'Aprenentatge</h3>
+<h4 id="621-aprenentatge-t%C3%A8cnic">6.2.1 Aprenentatge Tècnic</h4>
+<ul>
+<li><strong>Comprensió de RAG</strong>: Aprofundiment en tècniques de recuperació i generació augmentada</li>
+<li><strong>Integració de Models</strong>: Experiència pràctica amb models de llenguatge locals</li>
+<li><strong>Optimització</strong>: Tècniques per millorar el rendiment dels sistemes d'IA</li>
+</ul>
+<h4 id="622-aprenentatge-conceptual">6.2.2 Aprenentatge Conceptual</h4>
+<ul>
+<li><strong>Limitacions de l'IA</strong>: Comprensió de les limitacions dels models de llenguatge</li>
+<li><strong>Qualitat de Dades</strong>: Importància de la qualitat del dataset per a resultats precisos</li>
+<li><strong>Balanceig</strong>: Equilibri entre precisió, velocitat i cost</li>
+</ul>
+<h3 id="63-efectivitat-de-la-soluci%C3%B3-ia">6.3 Efectivitat de la Solució IA</h3>
+<h4 id="631-m%C3%A8triques-quantitatives">6.3.1 Mètriques Quantitatives</h4>
+<ul>
+<li><strong>Precisió</strong>: 85% de les respostes són correctes</li>
+<li><strong>Temps de Resposta</strong>: Mitjana de 3.2 segons per consulta</li>
+<li><strong>Cobertura</strong>: 90% de les consultes reben respostes útils</li>
+</ul>
+<h4 id="632-m%C3%A8triques-qualitatives">6.3.2 Mètriques Qualitatives</h4>
+<ul>
+<li><strong>Relevància</strong>: Les respostes són generalment rellevants al context</li>
+<li><strong>Utilitat</strong>: 86.67% d'experiència d'usuari positiva</li>
+<li><strong>Naturalitat</strong>: Les respostes són coherents i naturals</li>
+</ul>
+<h3 id="64-desafiaments-i-solucions">6.4 Desafiaments i Solucions</h3>
+<h4 id="641-desafiaments-trobats">6.4.1 Desafiaments Trobats</h4>
+<ol>
+<li><strong>Configuració Inicial</strong>: Complexitat en la configuració d'Ollama i LangChain</li>
+<li><strong>Rendiment</strong>: Models locals requereixen recursos significatius</li>
+<li><strong>Qualitat de Respostes</strong>: Necessitat de fine-tuning dels prompts</li>
+</ol>
+<h4 id="642-solucions-implementades">6.4.2 Solucions Implementades</h4>
+<ol>
+<li><strong>Scripts d'Automatització</strong>: Scripts per automatitzar la configuració</li>
+<li><strong>Optimització de Models</strong>: Ús de models més petits per millor rendiment</li>
+<li><strong>Prompt Engineering</strong>: Desenvolupament de prompts efectius</li>
+</ol>
+<h2 id="7-conclusions-i-recomanacions">7. Conclusions i Recomanacions</h2>
+<h3 id="71-conclusions-principals">7.1 Conclusions Principals</h3>
+<ol>
+<li><strong>Java Servlets</strong> proporcionen una base sòlida per a aplicacions web empresarials, tot i la seva complexitat</li>
+<li><strong>El sistema RAG</strong> millora significativament la qualitat de les respostes comparat amb models sense context</li>
+<li><strong>La integració d'IA</strong> afegeix valor substancial a l'aplicació, millorant l'experiència de l'usuari</li>
+<li><strong>La containerització</strong> amb Docker simplifica el desplegament i la gestió</li>
+</ol>
+<p>La pràctica ha estat molt enriquidora, proporcionant experiència pràctica en:</p>
+<ul>
+<li>Desenvolupament web amb Java Servlets</li>
+<li>Implementació de sistemes d'IA amb RAG</li>
+<li>Integració de tecnologies diverses</li>
+<li>Avaluació i optimització de sistemes</li>
+<li>Containerització amb Docker i Docker Compose</li>
+<li>Gestió de proves comprensives i avaluació de sistemes</li>
+</ul>
+<hr>
+<p><strong>Data de l'informe</strong>: 21 de setembre de 2025<br>
+<strong>Autor</strong>: Sergio Shmyhelskyy Yaskevych &amp; Alex Lafuente Gonzalez
+<strong>Curs</strong>: PTI-FIB</p>
+
+</body>
+</html>
