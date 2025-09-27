@@ -69,6 +69,21 @@
                connectionTimeout="20000"
                redirectPort="8443" />
     <!-- A "Connector" using the shared thread pool-->
+
+     <!-- SSL/TLS Connector -->
+     <Connector protocol="org.apache.coyote.http11.Http11NioProtocol"
+     sslImplementationName="org.apache.tomcat.util.net.jsse.JSSEImplementation"
+     port="8443"
+     maxThreads="150"
+     SSLEnabled="true">
+     <SSLHostConfig>
+          <Certificate
+          certificateKeystoreFile="${user.home}/.keystore"
+          type="RSA"
+          />
+     </SSLHostConfig>
+     </Connector>
+
     <!--
     <Connector executor="tomcatThreadPool"
                port="8080" protocol="HTTP/1.1"
